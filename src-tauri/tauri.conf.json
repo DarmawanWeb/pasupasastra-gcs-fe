@@ -4,9 +4,9 @@
   "version": "0.2.0",
   "identifier": "id.darmawanweb.pasupasastra",
   "build": {
-    "beforeDevCommand": "pnpm dev",
+    "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:3000",
-    "beforeBuildCommand": "pnpm build",
+    "beforeBuildCommand": "npm run build",
     "frontendDist": "../out"
   },
   "app": {
