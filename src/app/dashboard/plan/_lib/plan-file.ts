@@ -7,6 +7,8 @@ import type {
 } from "@/types/mission";
 
 const FORMAT = "pasupasastra-plan";
+// Plan files exported before the rename stay importable.
+const FORMATS: readonly unknown[] = [FORMAT, "pasupatastra-plan"];
 const ACTIONS: readonly WaypointAction[] = [
   "none",
   "hover",
@@ -70,7 +72,7 @@ export function parsePlanFile(
   }
   if (typeof data !== "object" || data === null) return null;
   const f = data as Record<string, unknown>;
-  if (f.format !== FORMAT || !Array.isArray(f.waypoints)) return null;
+  if (!FORMATS.includes(f.format) || !Array.isArray(f.waypoints)) return null;
 
   const waypoints = f.waypoints.map(parseWaypoint);
   if (waypoints.some((w) => w === null)) return null;

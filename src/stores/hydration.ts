@@ -1,3 +1,4 @@
+import { migrateLegacyStorage } from "@/lib/legacy-storage";
 import { useAppStore } from "./use-app-store";
 import { useAuthStore } from "./use-auth-store";
 import { useDroneStore } from "./use-drone-store";
@@ -10,6 +11,7 @@ import { useStreamStore } from "./use-stream-store";
  * first client render; they are restored once, right after mount.
  */
 export async function rehydrateStores(): Promise<void> {
+  migrateLegacyStorage();
   await Promise.all([
     useAuthStore.persist.rehydrate(),
     useSettingsStore.persist.rehydrate(),

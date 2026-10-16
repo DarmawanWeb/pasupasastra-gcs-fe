@@ -1,3 +1,4 @@
+import { migrateLegacyStorage } from "@/lib/legacy-storage";
 import { createSeed, DB_VERSION, type MockDatabase } from "./seed";
 
 const STORAGE_KEY = "pasupasastra.mock-db";
@@ -6,6 +7,7 @@ let cache: MockDatabase | null = null;
 
 function load(): MockDatabase {
   if (typeof window === "undefined") return createSeed();
+  migrateLegacyStorage();
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (raw) {
