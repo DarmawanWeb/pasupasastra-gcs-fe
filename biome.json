@@ -41,11 +41,7 @@
         "noLabelWithoutControl": {
           "level": "error",
           "options": {
-            "inputComponents": [
-              "TextInput",
-              "TextArea",
-              "Select"
-            ]
+            "inputComponents": ["TextInput", "TextArea", "Select"]
           }
         }
       }
