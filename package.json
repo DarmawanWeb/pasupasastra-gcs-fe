@@ -2,6 +2,7 @@
   "name": "pasupasastra-gcs",
   "version": "0.2.0",
   "private": true,
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
     "dev": "next dev",
